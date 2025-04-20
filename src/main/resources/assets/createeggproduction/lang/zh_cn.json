@@ -1,0 +1,17 @@
+{
+  "block.createeggproduction.egg_collector_block": "产蛋器",
+  "block.createeggproduction.empty_egg_collector_block": "空产蛋器",
+  "creativetab.createeggproduction.main_tab": "机械动力：鸡蛋产线",
+  "createeggproduction.ponder.tag.egg_collector": "鸡蛋产线",
+  "createeggproduction.ponder.tag.egg_collector.description": "轻松量产鸡蛋",
+  "createeggproduction.ponder.egg_producer.header": "使用产蛋器轻松量产鸡蛋。",
+  "createeggproduction.ponder.egg_producer.text_1": "手持空产蛋器右键鸡以捕获它",
+  "createeggproduction.ponder.egg_producer.text_2": "从底部接入动力……",
+  "createeggproduction.ponder.egg_producer.text_3": "并供应种子和水。",
+  "createeggproduction.ponder.egg_producer.text_4": "鸡蛋就会源源不断地生产出来。",
+  "jei.createeggproduction.recipe.egg_production": "鸡蛋生产",
+  "jei.createeggproduction.info.empty_collector_capture": "瞄准鸡右键使用空产蛋器来捕捉它.",
+  "jei.createeggproduction.recipe.efficiency": "每%s转速 → %s秒每个鸡蛋",
+  "jei.createeggproduction.recipe.chicken_capturing": "捕获",
+  "jei.createeggproduction.recipe.capture": "捕获"
+}

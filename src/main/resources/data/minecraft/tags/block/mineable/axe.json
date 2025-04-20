@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "createeggproduction:egg_collector_block",
+    "createeggproduction:empty_egg_collector_block"
+  ]
+}

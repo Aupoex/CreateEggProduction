@@ -1,0 +1,17 @@
+{
+  "block.createeggproduction.egg_collector_block": "Egg Producer",
+  "block.createeggproduction.empty_egg_collector_block": "Empty Egg Producer",
+  "creativetab.createeggproduction.main_tab": "Create:Egg Production",
+  "createeggproduction.ponder.tag.egg_collector": "Egg Production",
+  "createeggproduction.ponder.tag.egg_collector.description": "Easily Mass-Produce Eggs",
+  "createeggproduction.ponder.egg_producer.header": "Effortlessly Mass-Produce Eggs with the Egg Producer.",
+  "createeggproduction.ponder.egg_producer.text_1": "Right-click a chicken with an Empty Egg Collector to capture it",
+  "createeggproduction.ponder.egg_producer.text_2": "Apply rotational force from the bottom...",
+  "createeggproduction.ponder.egg_producer.text_3": "And supply seeds and water.",
+  "createeggproduction.ponder.egg_producer.text_4": "Eggs will be continuously produced.",
+  "jei.createeggproduction.recipe.egg_production": "Egg Production",
+  "jei.createeggproduction.info.empty_collector_capture": "Aim at a chicken and right-click with an Empty Egg Collector to capture it.",
+  "jei.createeggproduction.recipe.efficiency": "Every %s RPM → %s seconds per egg",
+  "jei.createeggproduction.recipe.chicken_capturing": "Capturing",
+  "jei.createeggproduction.recipe.capture": "Capture"
+}

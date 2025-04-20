@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "c:glass_blocks"
+    },
+    "S": {
+      "tag": "c:seeds"
+    },
+    "C": {
+      "item": "create:andesite_casing"
+    },
+    "A": {
+      "item": "create:shaft"
+    }
+  },
+    "pattern": [
+      "GGG",
+      "S S",
+      "CAC"
+    ],
+    "result": {
+      "count": 1,
+      "id": "createeggproduction:empty_egg_collector_block"
+    }
+}
