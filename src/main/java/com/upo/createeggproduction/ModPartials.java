@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 public class ModPartials {
-    private static final Logger LOGGER = LogUtils.getLogger(); // 添加 Logger
+    private static final Logger LOGGER = LogUtils.getLogger(); 
 
     public static final PartialModel EGG_COLLECTOR_SHAFT_INPUT = block("ecb_sha");
 
