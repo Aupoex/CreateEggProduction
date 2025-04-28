@@ -9,14 +9,14 @@ import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-
+import com.upo.createeggproduction.client.render.IncubatorRenderer;
 import net.neoforged.neoforge.items.IItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -34,9 +34,11 @@ public class CreateEggProduction {
 
     public CreateEggProduction(IEventBus modEventBus) {
         ModCreativeTabs.register(modEventBus);
-        ModBlockEntities.registerAll();
         ModPartials.init();
-        ModBlocks.registerAll(modEventBus);
+        ModBlocks.load();
+        ModBlockEntities.load();
+        ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
         REGISTRATE.registerEventListeners(modEventBus);
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(ModDataGen::gatherData);
@@ -57,6 +59,10 @@ public class CreateEggProduction {
                     .factory(EggCollectorVisual::new)
                     .skipVanillaRender(blockEntity -> true)
                     .apply();
+            //孵化器渲染
+            RenderType incubatorRenderType = RenderType.translucent();
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.INCUBATOR_BLOCK.get(), incubatorRenderType);
+            BlockEntityRenderers.register(ModBlockEntities.INCUBATOR_BE.get(), IncubatorRenderer::new);
         });
     }
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -71,6 +77,7 @@ public class CreateEggProduction {
     public void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == ModCreativeTabs.MAIN_TAB.getKey()) {
             event.accept(ModBlocks.EMPTY_EGG_COLLECTOR_BLOCK_ITEM.get());
+            event.accept(ModBlocks.INCUBATOR_BLOCK_ITEM.get());
         }
     }
     private void registerCapabilities(final RegisterCapabilitiesEvent event) {
@@ -103,6 +110,11 @@ public class CreateEggProduction {
                 (be, context) -> {
                     return be.getFluidHandlerCapability(context);
                 }
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.INCUBATOR_BE.get(),
+                (be, context) -> be.getItemHandlerCapability(context)
         );
     }
     public static CreateRegistrate registrate() {

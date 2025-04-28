@@ -2,6 +2,7 @@ package com.upo.createeggproduction.ponder;
 
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.upo.createeggproduction.ponder.scene.EggCollectorScenes;
+import com.upo.createeggproduction.ponder.scene.IncubatorScenes;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -28,8 +29,9 @@ public class ModPonderScenes {
         HELPER.forComponents(ModBlocks.EMPTY_EGG_COLLECTOR_BLOCK_ITEM.get())
                 .addStoryBoard("egg_collector_processing", EggCollectorScenes::processing,ModPonderTags.EGG_COLLECTOR_TAG_ID);
 
+        HELPER.forComponents(ModBlocks.INCUBATOR_BLOCK_ITEM.get())
+                .addStoryBoard("egg_incubator_processing", IncubatorScenes::processing,ModPonderTags.EGG_COLLECTOR_TAG_ID);
+
     }
 
 }
-
-

@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
 public class EmptyEggCollectorBlockItem extends BlockItem {
+
     public EmptyEggCollectorBlockItem(Block block, Properties properties) {
         super(block, properties);
     }
@@ -23,21 +24,30 @@ public class EmptyEggCollectorBlockItem extends BlockItem {
             Level level = player.level();
             level.playSound(null, chicken.getX(), chicken.getY(), chicken.getZ(), SoundEvents.CHICKEN_EGG, SoundSource.PLAYERS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             if (!level.isClientSide) {
-                chicken.discard();
                 ItemStack filledStack = new ItemStack(ModBlocks.EGG_COLLECTOR_BLOCK.get());
-                if (!player.getAbilities().instabuild) {
-                    stack.shrink(1);
+                boolean giveSuccess = false;
+                if (stack.getCount() == 1 && !player.getAbilities().instabuild) {
+                    player.setItemInHand(hand, filledStack.copy());
+                    giveSuccess = true;
                 }
-                if (stack.isEmpty()) {
-                    player.setItemInHand(hand, filledStack);
-                } else {
-                    if (!player.getInventory().add(filledStack)) {
-                        player.drop(filledStack, false);
+                else {
+                    if (player.getInventory().add(filledStack.copy())) {
+                        giveSuccess = true;
+                        if (!player.getAbilities().instabuild) {
+                            stack.shrink(1);
+                        }
+                    } else {
+                        giveSuccess = false;
                     }
+                }
+                if (giveSuccess) {
+                    chicken.discard();
+                } else {
+                    return InteractionResult.FAIL;
                 }
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
-        return super.interactLivingEntity(stack, player, entity, hand);
+        return InteractionResult.PASS;
     }
 }

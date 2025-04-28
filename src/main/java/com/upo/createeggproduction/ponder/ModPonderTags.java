@@ -36,6 +36,9 @@ public class ModPonderTags {
         PonderTagRegistrationHelper<Item> HELPER = helper.withKeyFunction(BuiltInRegistries.ITEM::getKey);
         HELPER.addToTag(EGG_COLLECTOR_TAG_ID)
                 .add(ModBlocks.EMPTY_EGG_COLLECTOR_BLOCK_ITEM.get());
+        HELPER.addToTag(EGG_COLLECTOR_TAG_ID)
+                .add(ModBlocks.INCUBATOR_BLOCK_ITEM.get());
+
 
     }
 

@@ -142,7 +142,6 @@ public class EggCollectorBlockEntity extends KineticBlockEntity {
         if (tankBehaviour.getPrimaryHandler().getFluidAmount() < REQUIRED_WATER_AMOUNT || !tankBehaviour.getPrimaryHandler().getFluid().getFluid().isSame(Fluids.WATER)) {
 
             if (!tankBehaviour.getPrimaryHandler().getFluid().getFluid().isSame(Fluids.WATER)) {
-                LOGGER.debug("canProcess FAIL: Fluid is not Water");
             }
             return false;
         }

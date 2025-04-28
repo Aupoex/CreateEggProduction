@@ -4,8 +4,10 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.upo.createeggproduction.content.blocks.EggCollectorBlock;
 import com.upo.createeggproduction.content.blocks.EmptyEggCollectorBlock;
+import com.upo.createeggproduction.content.blocks.IncubatorBlock;
 import com.upo.createeggproduction.content.items.EmptyEggCollectorBlockItem;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import com.simibubi.create.foundation.data.CreateRegistrate;
@@ -54,10 +56,28 @@ public class ModBlocks {
                             new Item.Properties()
                     )
             );
-    public static void registerAll(IEventBus modEventBus) {
-        LOGGER.debug("Registering ModBlocks DeferredRegisters to event bus...");
+
+    public static final DeferredHolder<Block, IncubatorBlock> INCUBATOR_BLOCK =
+            BLOCKS.register("incubator",
+                    () -> new IncubatorBlock(BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.TERRACOTTA_YELLOW)
+                            .strength(1.2f, 4.0f)
+                            .requiresCorrectToolForDrops()
+                            .lightLevel(state -> 3)
+                            .noOcclusion()
+                    )
+            );
+
+    public static final DeferredHolder<Item, BlockItem> INCUBATOR_BLOCK_ITEM =
+            ITEMS.register("incubator",
+                    () -> new BlockItem(INCUBATOR_BLOCK.get(), new Item.Properties())
+            );
+
+    public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
+    }
+    public static void load() {
     }
 
 }

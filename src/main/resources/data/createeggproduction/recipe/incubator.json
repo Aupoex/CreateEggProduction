@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "c:glass_blocks"
+    },
+    "S": {
+      "item": "create:copper_sheet"
+    },
+    "C": {
+      "item": "create:brass_casing"
+    },
+    "A": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "SSS",
+    "CAC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "createeggproduction:incubator"
+  }
+}
