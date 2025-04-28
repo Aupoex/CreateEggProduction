@@ -50,4 +50,5 @@ public class EmptyEggCollectorBlockItem extends BlockItem {
         }
         return InteractionResult.PASS;
     }
+    private static final org.slf4j.Logger LOGGER = com.mojang.logging.LogUtils.getLogger();
 }
