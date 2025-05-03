@@ -37,8 +37,6 @@ public class CreateEggProductionJEIPlugin implements IModPlugin {
     }
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        LOGGER.info("Registering JEI Recipes and Info for {}", CreateEggProduction.MODID);
-
         try {
             IJeiHelpers jeiHelpers = registration.getJeiHelpers();
             Optional<RecipeType<?>> maybeRecipeType =
@@ -50,19 +48,12 @@ public class CreateEggProductionJEIPlugin implements IModPlugin {
                     RecipeType<EggProductionRecipe> eggProductionRecipeType = (RecipeType<EggProductionRecipe>) unknownRecipeType;
                     List<EggProductionRecipe> eggProductionRecipes = EggProductionRecipe.getRecipes();
                     if (eggProductionRecipes.isEmpty()) {
-                    } else {
-                        LOGGER.debug("Found {} EggProductionRecipe instance(s).", eggProductionRecipes.size());
                     }
                     registration.addRecipes(eggProductionRecipeType, eggProductionRecipes);
-                    LOGGER.debug("Added custom EggProductionRecipe data to JEI.");
-
                 } else {
-                    LOGGER.error("JEI returned a RecipeType for ID '{}', but it's not for EggProductionRecipe! Found class: {}",
-                            EGG_PRODUCTION_TYPE_ID, unknownRecipeType.getRecipeClass().getName());
                     return;
                 }
             } else {
-                LOGGER.error("Could not find JEI RecipeType for ID: {}", EGG_PRODUCTION_TYPE_ID);
                 return;
             }
 
@@ -73,8 +64,6 @@ public class CreateEggProductionJEIPlugin implements IModPlugin {
                 List<ChickenCapturingRecipe> capturingRecipes = ChickenCapturingRecipe.getRecipes();
                 registration.addRecipes(capturingRecipeType, capturingRecipes);
                 LOGGER.debug("Added {} ChickenCapturing recipes.", capturingRecipes.size());
-            } else {
-                LOGGER.error("Could not find or verify RecipeType for Chicken Capturing!");
             }
         } catch (Exception e) {
             LOGGER.error("Failed to register JEI recipes or info for {}!", CreateEggProduction.MODID, e);
@@ -88,7 +77,6 @@ public class CreateEggProductionJEIPlugin implements IModPlugin {
                     new ItemStack(ModBlocks.EGG_COLLECTOR_BLOCK.get()),
                     EggProductionCategory.TYPE
             );
-            LOGGER.debug("Registered Egg Collector Block as catalyst for EggProductionCategory.");
         } catch (Exception e) {
             LOGGER.error("Failed to register JEI catalysts for {}!", CreateEggProduction.MODID, e);
         }

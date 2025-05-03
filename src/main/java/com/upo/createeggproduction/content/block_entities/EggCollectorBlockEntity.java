@@ -167,7 +167,6 @@ public class EggCollectorBlockEntity extends KineticBlockEntity {
         ItemStack stackAfter = itemHandler.getStackInSlot(0);
         if (tankBehaviour != null) {
             tankBehaviour.getPrimaryHandler().drain(new FluidStack(Fluids.WATER, REQUIRED_WATER_AMOUNT), IFluidHandler.FluidAction.EXECUTE);
-            LOGGER.debug("Consumed {} mB water.", REQUIRED_WATER_AMOUNT);
         }
         setChanged();
     }
@@ -186,11 +185,7 @@ public class EggCollectorBlockEntity extends KineticBlockEntity {
             if (canAdd >= EGG_OUTPUT_AMOUNT) {
                 outputSlotStack.grow(EGG_OUTPUT_AMOUNT);
                 success = true;
-            } else {
-                LOGGER.warn("produceEgg: Tried to produce egg, but slot 1 (containing eggs) is too full ({} / {}). This shouldn't happen if canProcess is correct.", currentAmount, maxStackSize);
             }
-        } else {
-            LOGGER.warn("produceEgg: Tried to produce egg, but slot 1 contains unexpected item: {}", outputSlotStack.getItem().getDescriptionId());
         }
         if (success) {
             if (level != null && !level.isClientSide) {

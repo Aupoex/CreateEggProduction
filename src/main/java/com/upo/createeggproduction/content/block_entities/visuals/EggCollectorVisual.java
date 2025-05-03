@@ -31,7 +31,6 @@ public class EggCollectorVisual extends KineticBlockEntityVisual<EggCollectorBlo
     private void initializeVisual(float partialTick) {
         try {
             if (ModPartials.EGG_COLLECTOR_SHAFT_INPUT == null) {
-                LOGGER.error("PartialModel EGG_COLLECTOR_SHAFT_INPUT is null!");
                 return;
             }
             var rotorModelGetter = Models.partial(ModPartials.EGG_COLLECTOR_SHAFT_INPUT);
@@ -73,7 +72,6 @@ public class EggCollectorVisual extends KineticBlockEntityVisual<EggCollectorBlo
     }
     @Override
     protected void _delete() {
-        LOGGER.debug("Deleting visual instance...");
         if (shaftInputInstance != null) {
             shaftInputInstance.delete();
             shaftInputInstance = null;
