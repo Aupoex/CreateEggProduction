@@ -15,8 +15,8 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import com.upo.createeggproduction.CreateEggProduction;
-import com.upo.createeggproduction.compat.jei.recipes.ChickenCapturingRecipe; // 新的配方类
-import com.upo.createeggproduction.ModBlocks; // 需要物品
+import com.upo.createeggproduction.compat.jei.recipes.ChickenCapturingRecipe; 
+import com.upo.createeggproduction.ModBlocks; 
 
 public class ChickenCapturingCategory implements IRecipeCategory<ChickenCapturingRecipe> {
     public static final RecipeType<ChickenCapturingRecipe> TYPE =
@@ -58,7 +58,7 @@ public class ChickenCapturingCategory implements IRecipeCategory<ChickenCapturin
         int textWidth = font.width(transformText);
         int textX = arrowX + (jeiArrow.getWidth() - textWidth) / 2;
         int textY = arrowY - 10;
-        guiGraphics.drawString(font, transformText, textX, textY, 0xFF808080, false); // 灰色
+        guiGraphics.drawString(font, transformText, textX, textY, 0xFF808080, false); 
     }
     private final IDrawable jeiArrow;
 }
