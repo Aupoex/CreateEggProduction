@@ -153,7 +153,7 @@ public class IncubatorBlockEntity extends BlockEntity {
     @Override
     public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        // --- Debug 日志：加载 NBT 开始 ---
+
         int hashBefore = itemHandler.hashCode();
 
         if (tag.contains("Inventory", CompoundTag.TAG_COMPOUND)) {
@@ -169,7 +169,7 @@ public class IncubatorBlockEntity extends BlockEntity {
         }
         int hashAfter = itemHandler.hashCode();
         StringBuilder invState = new StringBuilder("[");
-        // ... (构建 invState 字符串) ...
+
         if(invState.length() > 1) invState.delete(invState.length()-2, invState.length());
         else invState.append("EMPTY");
         invState.append("]");
