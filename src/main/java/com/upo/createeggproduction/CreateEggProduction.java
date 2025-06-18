@@ -41,7 +41,6 @@ public class CreateEggProduction {
         ModBlockEntities.register(modEventBus);
         REGISTRATE.registerEventListeners(modEventBus);
         modEventBus.addListener(this::clientSetup);
-        modEventBus.addListener(ModDataGen::gatherData);
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::registerCapabilities);
         modEventBus.addListener(this::addCreative);
