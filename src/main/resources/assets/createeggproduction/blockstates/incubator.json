@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "createeggproduction:block/incubator" },
+    "facing=east":  { "model": "createeggproduction:block/incubator", "y": 90 },
+    "facing=south": { "model": "createeggproduction:block/incubator", "y": 180 },
+    "facing=west":  { "model": "createeggproduction:block/incubator", "y": 270 }
+  }
+}
